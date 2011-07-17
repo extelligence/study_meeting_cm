@@ -1,1 +1,6 @@
 <h1>Login for sponsors</h1>
+
+<% form_tag({:controller => "sponsors", :action => "login"}) do %>
+  <%= select("sponsor",  "id",  Sponsor.all.collect {|p| [ p.name,  p.id ] },  { :include_blank => true }) %>
+  <%= submit_tag "Login" %>
+<% end %>
