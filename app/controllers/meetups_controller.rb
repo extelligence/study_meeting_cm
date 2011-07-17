@@ -5,7 +5,7 @@ class MeetupsController < ApplicationController
   # GET /meetups.xml
   def index
     if current_staff
-      @meetups = Meetup.find_all_by_staff_id(session[:staff_id])
+      @meetups = Meetup.order("date DESC, id DESC").find_all_by_staff_id(session[:staff_id])
     else
       @meetups = Meetup.all
     end
@@ -52,7 +52,7 @@ class MeetupsController < ApplicationController
 
     respond_to do |format|
       if @meetup.save
-        format.html { redirect_to(@meetup, :notice => 'Meetup was successfully created.') }
+        format.html { redirect_to meetups_path }
         format.xml  { render :xml => @meetup, :status => :created, :location => @meetup }
       else
         format.html { render :action => "new" }
@@ -68,24 +68,12 @@ class MeetupsController < ApplicationController
 
     respond_to do |format|
       if @meetup.update_attributes(params[:meetup])
-        format.html { redirect_to(@meetup, :notice => 'Meetup was successfully updated.') }
+        format.html { redirect_to meetups_path }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
         format.xml  { render :xml => @meetup.errors, :status => :unprocessable_entity }
       end
-    end
-  end
-
-  # DELETE /meetups/1
-  # DELETE /meetups/1.xml
-  def destroy
-    @meetup = Meetup.find(params[:id])
-    @meetup.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(meetups_url) }
-      format.xml  { head :ok }
     end
   end
 end
