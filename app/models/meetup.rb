@@ -1,4 +1,6 @@
 class Meetup < ActiveRecord::Base
+  has_many :ads
+  has_many :sponsors, :through => :ads
   validates :date, :presence => true
   validates :name, :presence => true
   validates :location, :presence => true
