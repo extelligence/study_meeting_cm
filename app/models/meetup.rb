@@ -25,6 +25,23 @@ class Meetup < ActiveRecord::Base
       "予定"
     end
   end
+
+  def display_date
+    date.strftime("%Y/%m/%d")
+  end
+
+  def cancelled
+    status = "CANCELLED"
+  end
+  def cancelled?
+    status == "CANCELLED"
+  end
+  def planned?
+    status == "PLANNED"
+  end
+  def confirmation?
+    status == "CONFIRMATION"
+  end
 end
 
 

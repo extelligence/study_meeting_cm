@@ -35,6 +35,13 @@
     <%= f.label :site_url %><br />
     <%= f.text_field :site_url %>
   </div>
+  <div class="field">
+    <%= f.label :status %><br />
+    <%
+        status_list = {"予定" => "PLANNED", "中止" => "CANCELLED", "確定" => "CONFIRMATION"}
+    %>
+  <%= select_tag("meetup[status]", options_for_select(status_list)) %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
