@@ -1,0 +1,23 @@
+<h1><%= @pagetitle %></h1>
+<p>この勉強会に申し込まれている広告一覧です。</p>
+
+<%= form_tag new_playlist_path, :method => :get do %>
+  <table>
+    <tr>
+      <th>広告名</th>
+      <th>サムネイル</th>
+      <th>秒数</th>
+      <th>URL</th>
+    </tr>
+
+    <% @ads.each do |ad| %>
+      <tr>
+        <td><input type="checkbox" name="ad_ids[]" value="<%= ad.id %>"></td>
+        <td><%= ad.url %></td>
+        <td><%= ad.name %></td>
+        <td><%= ad.second %></td>
+      </tr>
+    <% end %>
+  </table>
+  <%= submit_tag "OK" %>
+<% end %>

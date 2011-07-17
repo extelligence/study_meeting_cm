@@ -27,6 +27,7 @@ class Meetup < ActiveRecord::Base
   end
 end
 
+
 # == Schema Information
 #
 # Table name: meetups
@@ -40,5 +41,7 @@ end
 #  site_url   :string(255)
 #  created_at :datetime
 #  updated_at :datetime
+#  staff_id   :integer
+#  status     :string(255)
 #
 
