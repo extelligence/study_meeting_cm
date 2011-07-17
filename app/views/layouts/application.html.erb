@@ -8,32 +8,13 @@
     <%= csrf_meta_tag %>
   </head>
   <body>
+    <%= render "layouts/header" %>
     <div class="container">
-      <header>
-        <img src="http://dummyimage.com/100x50/d3d3d3/000.png&text=ロゴ(100x50)" alt="SampleApp" class="round">
-        <!--<img src="http://railstutorial.org/images/sample_app/logo.png" alt="SampleApp" class="round">-->
-        <nav class="round">
-        <ul>
-          <li><%= link_to 'Home', root_path %></li>
-          <li><%= link_to 'Help', root_path %></li>
-          <li><%= link_to 'Sign in', root_path %></li>
-        </ul>
-        </nav>
-      </header>
       <section class="round">
-      <h1>welcome</h1>
+      <h1><%= @pagetitle %></h1>
       <%= yield %>
       </section>
     </div>
-
-    <footer>
-      <nav class="round">
-        <ul>
-          <li><%= link_to 'About', "" %></li>
-          <li><%= link_to 'Contact', "" %></li>
-          <li><%= link_to 'News', "" %></li>
-        </ul>
-      </nav>
-    </footer>
+    <%= render "layouts/footer" %>
   </body>
 </html>

@@ -8,6 +8,8 @@ body {
 }
 
 header {
+  margin: 0 auto;
+  width: 760px;
   padding-top: 20px;
 }
 
