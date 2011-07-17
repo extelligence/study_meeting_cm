@@ -2,6 +2,7 @@ StudyMeetingCm::Application.routes.draw do
   match "/staffs/login" => "staffs#login"
   match "/sponsors/login" => "sponsors#login"
 
+  resources :meetups
   resources :sponsors
   resources :staffs
 
