@@ -35,4 +35,4 @@ group :development, :test do
 end
 gem "jquery-rails"
 gem "annotate"
-
+gem "blueprint-rails"
