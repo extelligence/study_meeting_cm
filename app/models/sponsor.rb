@@ -1,4 +1,4 @@
-class Staff < ActiveRecord::Base
+class Sponsor < ActiveRecord::Base
   validates_uniqueness_of :email
   validates :name, :presence => true
   validates :email, :presence => true
