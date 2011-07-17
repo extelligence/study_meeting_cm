@@ -3,7 +3,7 @@ class Ad < ActiveRecord::Base
   belongs_to :sponsor
 
   has_many :ad_playlists
-  has_many :playlists, throuth: :ad_playlists
+  has_many :playlists, through: :ad_playlists
 end
 
 # == Schema Information

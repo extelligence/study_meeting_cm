@@ -1,7 +1,7 @@
 <h1><%= @pagetitle %></h1>
 <p>この勉強会に申し込まれている広告一覧です。</p>
 
-<%= form_tag new_playlist_path, :method => :get do %>
+<%= form_tag playlists_path do %>
   <table>
     <tr>
       <th>広告名</th>
