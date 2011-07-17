@@ -14,7 +14,7 @@ class StaffsController < ApplicationController
   def login
     if request.method == "POST"
       session[:staff_id] = params[:staff][:id]
-      redirect_to staff_path(current_staff)
+      redirect_to meetups_path
     end
   end
 

@@ -1,3 +1,4 @@
+# coding: utf-8
 class Meetup < ActiveRecord::Base
   validates :date, :presence => true
   validates :name, :presence => true
@@ -5,6 +6,23 @@ class Meetup < ActiveRecord::Base
   validates :capacity, :presence => true
   validates :group_name, :presence => true
   validates :site_url, :presence => true
+
+  belongs_to :staff
+
+  def display_status
+    case status
+    when "PLANNED"
+      "予定"
+    when "CANCELLED"
+      "中止"
+    when "CONFIRMATION"
+      "確定"
+    when "COMPLETION"
+      "完了"
+    else
+      "予定"
+    end
+  end
 end
 
 # == Schema Information
