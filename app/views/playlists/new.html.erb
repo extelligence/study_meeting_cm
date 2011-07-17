@@ -1,0 +1,21 @@
+<h1><%= @pagetitle %></h1>
+<p>プレイリストです。</p>
+
+<%= form_for @playlist do |form| %>
+  <table>
+    <tr>
+      <th>URL</th>
+      <th>広告名</th>
+      <th>秒数</th>
+    </tr>
+
+    <% @playlist.ads.each do |ad| %>
+      <tr>
+        <td><%= ad.url %></td>
+        <td><%= ad.name %></td>
+        <td><%= ad.second %></td>
+      </tr>
+    <% end %>
+  </table>
+  <%= submit_tag "プレイリストとして保存する" %>
+<% end %>
