@@ -1,4 +1,6 @@
 StudyMeetingCm::Application.routes.draw do
+  resources :sponsors
+
   resources :staffs
 
   # The priority is based upon order of creation:
