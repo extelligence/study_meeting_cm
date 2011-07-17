@@ -9,4 +9,13 @@ class ApplicationController < ActionController::Base
     end
   end
   helper_method :current_sponsor
+
+  def current_staff
+    if staff_id = session[:staff_id]
+      Staff.find(staff_id)
+    else
+      nil
+    end
+  end
+  helper_method :current_staff
 end
