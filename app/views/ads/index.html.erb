@@ -1,23 +1,32 @@
-<h1><%= @pagetitle %></h1>
 <p>この勉強会に申し込まれている広告一覧です。</p>
+<p>掲載可能な広告にチェックを入れて下さい。</p>
 
 <%= form_tag playlists_path do %>
-  <table>
+  <table class="list">
+    <thead>
     <tr>
+      <th>掲載<br />可否</th>
+      <th>広告イメージ</th>
       <th>広告名</th>
-      <th>サムネイル</th>
-      <th>秒数</th>
-      <th>URL</th>
+      <th>素材秒数</th>
+      <th>実質秒数</th>
     </tr>
-
+  </thead>
+  <tbody>
     <% @ads.each do |ad| %>
       <tr>
-        <td><input type="checkbox" name="ad_ids[]" value="<%= ad.id %>"></td>
-        <td><%= ad.url %></td>
-        <td><%= ad.name %></td>
-        <td><%= ad.second %></td>
+        <td class="checkbox"><input type="checkbox" name="ad_ids[]" value="<%= ad.id %>"></td>
+        <td class="thumbnail">
+          <iframe width="240" height="160" src="http://www.youtube.com/embed/<%= ad.url %>" frameborder="0" allowfullscreen></iframe>
+        </td>
+        <td><%= link_to ad.name, "" %></td>
+        <td class="second"><%= ad.second %>&nbsp;秒</td>
+        <td class="second"><%= ad.second %>&nbsp;秒</td>
       </tr>
     <% end %>
-  </table>
+  </tbody>
+</table>
+<div class="center">
   <%= submit_tag "OK" %>
+</div>
 <% end %>
