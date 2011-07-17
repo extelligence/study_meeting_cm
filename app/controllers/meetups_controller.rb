@@ -1,8 +1,14 @@
 class MeetupsController < ApplicationController
+  before_filter :require_login
+
   # GET /meetups
   # GET /meetups.xml
   def index
-    @meetups = Meetup.all
+    if current_staff
+      @meetups = Meetup.find_all_by_staff_id(session[:staff_id])
+    else
+      @meetups = Meetup.all
+    end
 
     respond_to do |format|
       format.html # index.html.erb
@@ -41,6 +47,8 @@ class MeetupsController < ApplicationController
   # POST /meetups.xml
   def create
     @meetup = Meetup.new(params[:meetup])
+    @meetup.staff_id = current_staff
+    @meetup.status = PLANNED
 
     respond_to do |format|
       if @meetup.save
