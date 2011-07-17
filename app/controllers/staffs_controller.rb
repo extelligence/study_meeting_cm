@@ -9,6 +9,9 @@ class StaffsController < ApplicationController
       format.xml  { render :xml => @staffs }
     end
   end
+  # GET /staffs/login
+  def login
+  end
 
   # GET /staffs/1
   # GET /staffs/1.xml

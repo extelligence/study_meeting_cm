@@ -9,6 +9,9 @@ class SponsorsController < ApplicationController
       format.xml  { render :xml => @sponsors }
     end
   end
+  # GET /sponsors/login
+  def login
+  end
 
   # GET /sponsors/1
   # GET /sponsors/1.xml

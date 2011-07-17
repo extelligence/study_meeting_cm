@@ -1,8 +1,8 @@
 StudyMeetingCm::Application.routes.draw do
-  get "welcome/index"
+  match "/staffs/login" => "staffs#login"
+  match "/sponsors/login" => "sponsors#login"
 
   resources :sponsors
-
   resources :staffs
 
   # The priority is based upon order of creation:
@@ -55,6 +55,7 @@ StudyMeetingCm::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
   root :to => "welcome#index"
+  get "welcome/index"
 
   # See how all your routes lay out with "rake routes"
 
