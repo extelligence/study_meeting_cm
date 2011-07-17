@@ -34,4 +34,5 @@ group :development, :test do
   gem "rspec-rails",  ">= 2.0.1"
 end
 gem "jquery-rails"
+gem "annotate"
 
