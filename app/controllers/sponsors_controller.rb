@@ -14,7 +14,7 @@ class SponsorsController < ApplicationController
   def login
     if request.method == "POST"
       session[:sponsor_id] = params[:sponsor][:id]
-      redirect_to sponsor_path(current_sponsor)
+      redirect_to sponsor_ads_path(session[:sponsor_id])
     end
   end
 
