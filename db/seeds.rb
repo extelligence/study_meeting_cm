@@ -7,8 +7,18 @@
 #
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
-Ad.create(:name => 'ビールの広告1', :meetup_id => '1', :sponsor_id => '1', :second => 30, :url => "http://youtu.be/OsX8H_uXmqU")
-Ad.create(:name => 'ビールの広告2', :meetup_id => '1', :sponsor_id => '1', :second => 30, :url => "http://youtu.be/OsX8H_uXmqU")
-Ad.create(:name => 'ビールの広告3', :meetup_id => '1', :sponsor_id => '1', :second => 30, :url => "http://youtu.be/OsX8H_uXmqU")
-Ad.create(:name => 'ビールの広告4', :meetup_id => '1', :sponsor_id => '1', :second => 30, :url => "http://youtu.be/OsX8H_uXmqU")
-Ad.create(:name => 'ビールの広告5', :meetup_id => '1', :sponsor_id => '1', :second => 30, :url => "http://youtu.be/OsX8H_uXmqU")
+Staff.create(:name => '運営者A', :email => 'a@example.com')
+Staff.create(:name => '運営者B', :email => 'b@example.com')
+
+Sponsor.create(:name => '企業A', :email => 'a@company.com')
+Sponsor.create(:name => '企業B', :email => 'b@company.com')
+Sponsor.create(:name => '個人C', :email => 'c@company.com')
+Sponsor.create(:name => '個人D', :email => 'd@company.com')
+
+Meetup.create(:name => "すくすくスクラム", :staff_id => 1, :date => Date.today, :capacity => 50, :group_name => "○×さん", :site_url => "http://hoge.com")
+
+Ad.create(:name => '広告1', :meetup_id => '1', :sponsor_id => '1', :second => 30, :url => "OsX8H_uXmqU")
+Ad.create(:name => '広告2', :meetup_id => '1', :sponsor_id => '2', :second => 30, :url => "OsX8H_uXmqU")
+Ad.create(:name => '広告3', :meetup_id => '1', :sponsor_id => '3', :second => 30, :url => "OsX8H_uXmqU")
+Ad.create(:name => '広告4', :meetup_id => '1', :sponsor_id => '4', :second => 30, :url => "OsX8H_uXmqU")
+Ad.create(:name => '広告5', :meetup_id => '1', :sponsor_id => '1', :second => 30, :url => "OsX8H_uXmqU")
