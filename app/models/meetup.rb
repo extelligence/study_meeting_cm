@@ -1,4 +1,10 @@
 class Meetup < ActiveRecord::Base
+  validates :date, :presence => true
+  validates :name, :presence => true
+  validates :location, :presence => true
+  validates :capacity, :presence => true
+  validates :group_name, :presence => true
+  validates :site_url, :presence => true
 end
 
 # == Schema Information
