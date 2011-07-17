@@ -1,7 +1,9 @@
 class Ad < ActiveRecord::Base
   belongs_to :meetup
   belongs_to :sponsor
-  belongs_to :playlist
+
+  has_many :ad_playlists
+  has_many :playlists, throuth: :ad_playlists
 end
 
 # == Schema Information
