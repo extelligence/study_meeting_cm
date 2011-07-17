@@ -9,6 +9,14 @@ class StaffsController < ApplicationController
       format.xml  { render :xml => @staffs }
     end
   end
+  # GET /staffs/login
+  # POST /staffs/login
+  def login
+    if request.method == "POST"
+      session[:staff_id] = params[:staff][:id]
+      redirect_to staff_path(current_staff)
+    end
+  end
 
   # GET /staffs/1
   # GET /staffs/1.xml

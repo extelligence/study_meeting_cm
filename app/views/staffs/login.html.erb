@@ -1,0 +1,6 @@
+<h1>login for staff</h1>
+
+<% form_tag({:controller => "staffs", :action => "login"}) do %>
+  <%= select("staff",  "id",  Staff.all.collect {|p| [ p.name,  p.id ] },  { :include_blank => true }) %>
+  <%= submit_tag "Login" %>
+<% end %>

@@ -9,6 +9,14 @@ class SponsorsController < ApplicationController
       format.xml  { render :xml => @sponsors }
     end
   end
+  # GET /sponsors/login
+  # POST /sponsors/login
+  def login
+    if request.method == "POST"
+      session[:sponsor_id] = params[:sponsor][:id]
+      redirect_to sponsor_path(current_sponsor)
+    end
+  end
 
   # GET /sponsors/1
   # GET /sponsors/1.xml
