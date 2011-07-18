@@ -9,15 +9,15 @@
     <th>タイトル</th>
     <th>CM名</th>
     <th>ステータス</th>
+    <th></th>
   </tr>
   <% @sponsor.ads.each do |ad| -%>
     <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td><%= ad.display_created_at %></td>
+      <td><%= ad.meetup.name %></td>
+      <td><%= ad.name %></td>
+      <td><%= ad.meetup.display_status %></td>
+      <td><%= link_to 'Edit', edit_sponsor_ad_path(ad) %></td>
     </tr>
   <% end -%>
 </table>
-<%= link_to 'Edit', edit_sponsor_path(@sponsor) %> |
-<%= link_to 'Back', sponsors_path %>
