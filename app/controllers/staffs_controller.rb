@@ -14,6 +14,8 @@ class StaffsController < ApplicationController
   def login
     if request.method == "POST"
       session[:staff_id] = params[:staff][:id]
+      # clear sponsor login session
+      session[:sponsor_id] = nil
       redirect_to meetups_path
     end
   end

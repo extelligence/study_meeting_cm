@@ -4,14 +4,18 @@ class MeetupsController < ApplicationController
   # GET /meetups
   # GET /meetups.xml
   def index
+    template = "index"
     if current_staff
       @meetups = Meetup.order("date DESC, id DESC").find_all_by_staff_id(session[:staff_id])
+    elsif current_sponsor
+      @meetups = Meetup.all
+      template = "sponsor_index"
     else
       @meetups = Meetup.all
     end
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html { render template }
       format.xml  { render :xml => @meetups }
     end
   end

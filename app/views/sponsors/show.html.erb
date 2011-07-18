@@ -1,15 +1,23 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <b>Email:</b>
-  <%= @sponsor.email %>
-</p>
-
-<p>
-  <b>Name:</b>
-  <%= @sponsor.name %>
-</p>
-
-
+<%= @sponsor.name %> さんのCM予定
+<div style="text-align: right;">
+  <%= link_to "CM申し込み",  meetups_path %>
+</div>
+<table>
+  <tr>
+    <th>日付</th>
+    <th>タイトル</th>
+    <th>CM名</th>
+    <th>ステータス</th>
+  </tr>
+  <% @sponsor.ads.each do |ad| -%>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  <% end -%>
+</table>
 <%= link_to 'Edit', edit_sponsor_path(@sponsor) %> |
 <%= link_to 'Back', sponsors_path %>
