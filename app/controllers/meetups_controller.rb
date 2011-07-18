@@ -8,7 +8,7 @@ class MeetupsController < ApplicationController
     if current_staff
       @meetups = Meetup.order("date DESC, id DESC").find_all_by_staff_id(session[:staff_id])
     elsif current_sponsor
-      @meetups = Meetup.all
+      @meetups = Meetup.find_all_by_status(PLANNED)
       template = "sponsor_index"
     else
       @meetups = Meetup.all
