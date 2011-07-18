@@ -15,7 +15,7 @@
   <tr>
     <td><%= meetup.display_date %></td>
     <td><%= link_to meetup.name, meetup %></td>
-    <td><%= meetup.cm_count %></td>
+    <td><%= link_to meetup.cm_count, meetup_ads_path(meetup) %></td>
     <td><%= meetup.display_status %></td>
     <td><%= link_to '変更', edit_meetup_path(meetup) %></td>
   </tr>

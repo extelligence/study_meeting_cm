@@ -1,13 +1,14 @@
 StudyMeetingCm::Application.routes.draw do
   get "playlists/new"
 
-  resources :ads
   resources :playlists
 
   match "/staffs/login" => "staffs#login"
   match "/sponsors/login" => "sponsors#login"
 
-  resources :meetups
+  resources :meetups do
+    resources :ads
+  end
   resources :sponsors
   resources :staffs
 
