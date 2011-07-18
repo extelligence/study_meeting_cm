@@ -1,0 +1,13 @@
+<h2>広告募集中の勉強会一覧</h2>
+<table>
+  <tr>
+    <th>日付</th>
+    <th>&nbsp;</th>
+    <th>&nbsp;</th>
+  </tr>
+  <% @meetups.each do |meetup| %>
+    <td><%= meetup.date.strftime("%m/%d") %></td>
+    <td><%= meetup.name %></td>
+    <td><%= link_to "申し込み", new_meetup_ad_path(meetup) %></td>
+  <% end %>
+</table>

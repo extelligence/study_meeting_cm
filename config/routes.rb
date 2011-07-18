@@ -2,15 +2,26 @@ StudyMeetingCm::Application.routes.draw do
   get "playlists/new"
 
   resources :playlists
+  get "ads/index"
+
+  get "ads/new"
+
+  get "ads/edit"
+
+  get "ads/show"
 
   match "/staffs/login" => "staffs#login"
   match "/sponsors/login" => "sponsors#login"
 
+
   resources :meetups do
     resources :ads
   end
-  resources :sponsors
+  resources :sponsors do
+    resources :ads
+  end
   resources :staffs
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

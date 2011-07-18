@@ -4,6 +4,10 @@ class Ad < ActiveRecord::Base
 
   has_many :ad_playlists
   has_many :playlists, through: :ad_playlists
+
+  def display_created_at
+    created_at.strftime("%Y/%m/%d")
+  end
 end
 
 # == Schema Information
