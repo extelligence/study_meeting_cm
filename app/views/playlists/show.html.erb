@@ -21,8 +21,8 @@
 
 
 <script type="text/javascript"> 
-var video_list = ["l53kgSYL1fU", "1wDlsMg7CK4", "cmTrCnWIirc", "2In2a6xRDGQ"]; 
-//var video_list = [<%= @playlist.ads.map{|a| '"' + a.url + '"'}.join(", ") %>];
+var video_list_index = 0;
+var video_list = [<%=raw @playlist.ads.map{|a| '"' + a.url + '"'}.join(", ") %>];
 
 swfobject.embedSWF("http://www.youtube.com/v/" + video_list[0] + "?enablejsapi=1&autoplay=1&playerapiid=player", 
     "video", "854", "480", "8", null, null, { allowScriptAccess: "always" }, { id: "player" }); 
@@ -31,8 +31,13 @@ function onYouTubePlayerReady(playerId) {
     document.getElementById(playerId).addEventListener("onStateChange", "onytplayerStateChange"); 
 } 
 function onytplayerStateChange(newState) { 
-    if (newState == 0) { 
-        document.getElementById("player").loadVideoById(video_list[1]); 
+    if (newState == 0) {
+        video_list_index++;
+        if ( video_list_index > video_list.length ) {
+            video_list_index = 0;
+        }
+
+        document.getElementById("player").loadVideoById(video_list[video_list_index]); 
     } 
 } 
 </script> 
