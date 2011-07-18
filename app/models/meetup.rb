@@ -42,6 +42,9 @@ class Meetup < ActiveRecord::Base
   def confirmation?
     status == "CONFIRMATION"
   end
+  def cm_count
+    ads.find_all_by_meetup_id(id).count
+  end
 end
 
 
