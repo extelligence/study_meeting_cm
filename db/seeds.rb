@@ -15,7 +15,8 @@ Sponsor.create(:name => '企業B', :email => 'b@company.com')
 Sponsor.create(:name => '個人C', :email => 'c@company.com')
 Sponsor.create(:name => '個人D', :email => 'd@company.com')
 
-Meetup.create(:name => "すくすくスクラム", :staff_id => 1, :date => Date.today, :capacity => 50, :group_name => "○×さん", :site_url => "http://hoge.com")
+
+Meetup.create(:name => "すくすくスクラム勉強会", :staff_id => 1, :date => Time.now, :capacity => 50, :group_name => "○×さん", :site_url => "http://hoge.com", :status => "予定", :location => "東京")
 
 Ad.create(:name => '広告1', :meetup_id => '1', :sponsor_id => '1', :second => 30, :url => "OsX8H_uXmqU")
 Ad.create(:name => '広告2', :meetup_id => '1', :sponsor_id => '2', :second => 30, :url => "OsX8H_uXmqU")
